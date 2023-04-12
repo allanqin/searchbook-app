@@ -22,7 +22,7 @@ const Wishlist = () => {
             <div>
               <span className="title">{book.title}</span>
               <span> by </span>
-              <span>{book.author}</span>
+              <span>{book.author.join(", ")}</span>
             </div>
             <button onClick={()=>dispatch(deleteBook({id:book.id}))}>Remove from Wishlist</button>
           </div>
