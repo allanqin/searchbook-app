@@ -21,7 +21,7 @@ const Books = () => {
   const renderDetails = (book, set) => {
     //console.log("render: ", displayDetails)
     if (set.has(book.id)) {
-      return <div>{book.volumeInfo.description}</div>}
+      return <div className="description">{book.volumeInfo.description}</div>}
   }
 
   const mapData = (arr) => {
@@ -39,7 +39,7 @@ const Books = () => {
             <div>
               <span className="title">{book.volumeInfo.title}</span>
               <span> by </span>
-              <span>{book.volumeInfo.authors.join(", ")}</span>
+              <span>{book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : ""}</span>
             </div>
             <button onClick={()=>dispatch(addBook({id:book.id, title: book.volumeInfo.title, author:book.volumeInfo.authors, img:book.volumeInfo.imageLinks?.smallThumbnail}))}>Add to Wishlist</button>
             { renderDetails(book, displayDetails)}
